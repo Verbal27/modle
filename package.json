@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js && npm run build:messages",
-    "build:messages": "cross-env NODE_ENV=production babel-node scripts/group-messages.js",
+    "build:messages": "node scripts/group-messages.js",
     "precommit": "lint-staged",
     "test": "node scripts/test.js --env=jsdom",
     "styleguide": "styleguidist server",
@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@babel/core": "7.1.6",
-    "@babel/node": "7.0.0",
     "@babel/runtime": "7.1.5",
     "@fortawesome/fontawesome-svg-core": "1.2.6",
     "@fortawesome/free-solid-svg-icons": "5.4.1",
