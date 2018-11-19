@@ -141,6 +141,7 @@ module.exports = {
             options: {
               useBabel: true,
               compact: true,
+              babelCore: "@babel/core"
             },
           },
           // The notation here is somewhat confusing.

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import compose from 'recompose/compose';
+import { injectIntl, intlShape, defineMessages } from 'react-intl';
 import { graphql, OperationOption } from 'react-apollo';
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -17,6 +18,25 @@ import LoginForm from './LoginForm';
 import User from '../../types/User';
 import { ValidationField, ValidationObject, ValidationType } from './types';
 import { DUMMY_USER } from '../../apollo/client';
+
+const MESSAGES = defineMessages({
+  validationEmptyEmail: {
+    id: 'login.validation.emailEmpty',
+    defaultMessage: 'The email field cannot be empty',
+    description: 'Login form error message for empty "email" field.'
+  },
+  validationEmptyPassword: {
+    id: 'login.validation.passwordEmpty',
+    defaultMessage: 'The password field cannot be empty',
+    description: 'Login form error message for empty "password" field.'
+  },
+  loginFailed: {
+    id: 'login.result.failed',
+    defaultMessage:
+      'Could not log in. Please check your credentials or use the link below to reset your password.',
+    description: 'Warning message displayed when login is unsuccessful.'
+  }
+});
 
 const { GetUserQuery } = require('../../graphql/GET_USER.client.graphql');
 const { SetUserQuery } = require('../../graphql/SET_USER.client.graphql');
@@ -70,6 +90,7 @@ function RedirectIfAuthenticated({ component: Component, data, ...rest }) {
 }
 
 interface LoginProps extends RouteComponentProps {
+  intl: intlShape;
   updateUser?: Function;
   data: object;
   theme: ThemeInterface;
@@ -86,6 +107,7 @@ type CredentialsObject = {
   password: string;
 };
 
+// TODO remove when real log in is possible
 const DEMO_CREDENTIALS = {
   email: 'moodle@moodle.net',
   password: 'moodle'
@@ -98,21 +120,21 @@ class Login extends React.Component<LoginProps, LoginState> {
     validation: []
   };
 
-  static validateCredentials(credentials: CredentialsObject) {
+  validateCredentials(credentials: CredentialsObject) {
     const validation: ValidationObject[] = [];
 
     if (!credentials.email.length) {
       validation.push({
         field: ValidationField.email,
         type: ValidationType.error,
-        message: 'The email field cannot be empty'
+        message: this.props.intl.formatMessage(MESSAGES.validationEmptyEmail)
       } as ValidationObject);
     }
     if (!credentials.password.length) {
       validation.push({
         field: ValidationField.password,
         type: ValidationType.error,
-        message: 'The password field cannot be empty'
+        message: this.props.intl.formatMessage(MESSAGES.validationEmptyPassword)
       } as ValidationObject);
     }
 
@@ -130,7 +152,7 @@ class Login extends React.Component<LoginProps, LoginState> {
    * @param credentials {Object}
    */
   async onLoginFormSubmit(credentials) {
-    const validation = Login.validateCredentials(credentials);
+    const validation = this.validateCredentials(credentials);
 
     if (validation.length) {
       this.setState({ validation });
@@ -153,8 +175,7 @@ class Login extends React.Component<LoginProps, LoginState> {
             {
               field: null,
               type: ValidationType.warning,
-              message:
-                'Could not log in. Please check your credentials or use the link below to reset your password.'
+              message: this.props.intl.formatMessage(MESSAGES.loginFailed)
             } as ValidationObject
           ]
         });
@@ -323,6 +344,7 @@ const withUserAuthentication = graphql<{}, Args>(SetUserQuery, {
 } as OperationOption<{}, {}>);
 
 export default compose(
+  injectIntl,
   withTheme,
   withUser,
   withUserAuthentication

@@ -145,6 +145,7 @@ module.exports = {
             loader: require.resolve('awesome-typescript-loader'),
             options: {
               useBabel: true,
+              babelCore: "@babel/core"
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.
