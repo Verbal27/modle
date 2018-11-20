@@ -43,7 +43,7 @@ export default class CommunitiesFeatured extends React.Component {
             </Row>
             <Row>
               <Col size={6}>
-                Collection by{' '}
+                {' '}
                 <Link to={`/communities/${slugify(card.community.title)}`}>
                   {card.community.title}
                 </Link>

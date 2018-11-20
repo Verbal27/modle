@@ -1,6 +1,11 @@
 import * as React from 'react';
 import compose from 'recompose/compose';
-import { injectIntl, intlShape, defineMessages } from 'react-intl';
+import {
+  injectIntl,
+  intlShape,
+  defineMessages,
+  FormattedMessage
+} from 'react-intl';
 import { graphql, OperationOption } from 'react-apollo';
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import { Col, Grid, Row } from '@zendeskgarden/react-grid';
@@ -19,7 +24,7 @@ import User from '../../types/User';
 import { ValidationField, ValidationObject, ValidationType } from './types';
 import { DUMMY_USER } from '../../apollo/client';
 
-const MESSAGES = defineMessages({
+const LOGIN_MESSAGES = defineMessages({
   validationEmptyEmail: {
     id: 'login.validation.emailEmpty',
     defaultMessage: 'The email field cannot be empty',
@@ -35,6 +40,44 @@ const MESSAGES = defineMessages({
     defaultMessage:
       'Could not log in. Please check your credentials or use the link below to reset your password.',
     description: 'Warning message displayed when login is unsuccessful.'
+  },
+  logInPrompt: {
+    id: 'login.form.prompt',
+    defaultMessage: 'Log in using your social media account',
+    description: 'Log in form header prompt message.'
+  },
+  signUpPrompt: {
+    id: 'sign-up.notice',
+    defaultMessage:
+      'To participate in discussions you need to sign up. ' +
+      'Create an account on the left or use a social media account to log in.',
+    description: 'Sign up forn header prompt message.'
+  },
+  logInWithFacebookTitle: {
+    id: 'login.buttons.facebook.title',
+    defaultMessage: 'Log in with Facebook',
+    description: 'Log in with Facebook button title attribute.'
+  },
+  logInWithGoogleTitle: {
+    id: 'login.buttons.google.title',
+    defaultMessage: 'Log in with Google',
+    description: 'Log in with Google button title attribute.'
+  },
+  logInWithTwitterTitle: {
+    id: 'login.buttons.twitter.title',
+    defaultMessage: 'Log in with Twitter',
+    description: 'Log in with Twitter button title attribute.'
+  },
+  logInOr: {
+    id: 'login.form.or',
+    defaultMessage: 'OR',
+    description:
+      '"OR" message that separates the social media login buttons from email/password login form.'
+  },
+  logInFirstTime: {
+    id: 'login.form.firstTime',
+    defaultMessage: 'First time?',
+    description: 'First time message above log in form.'
   }
 });
 
@@ -120,6 +163,8 @@ class Login extends React.Component<LoginProps, LoginState> {
     validation: []
   };
 
+  formatMessage: Function;
+
   validateCredentials(credentials: CredentialsObject) {
     const validation: ValidationObject[] = [];
 
@@ -127,14 +172,14 @@ class Login extends React.Component<LoginProps, LoginState> {
       validation.push({
         field: ValidationField.email,
         type: ValidationType.error,
-        message: this.props.intl.formatMessage(MESSAGES.validationEmptyEmail)
+        message: this.formatMessage(LOGIN_MESSAGES.validationEmptyEmail)
       } as ValidationObject);
     }
     if (!credentials.password.length) {
       validation.push({
         field: ValidationField.password,
         type: ValidationType.error,
-        message: this.props.intl.formatMessage(MESSAGES.validationEmptyPassword)
+        message: this.formatMessage(LOGIN_MESSAGES.validationEmptyPassword)
       } as ValidationObject);
     }
 
@@ -145,6 +190,7 @@ class Login extends React.Component<LoginProps, LoginState> {
     super(props);
     this.onLoginFormSubmit = this.onLoginFormSubmit.bind(this);
     this.onLoginFormInputChange = this.onLoginFormInputChange.bind(this);
+    this.formatMessage = this.props.intl.formatMessage.bind(this.props.intl);
   }
 
   /**
@@ -175,7 +221,7 @@ class Login extends React.Component<LoginProps, LoginState> {
             {
               field: null,
               type: ValidationType.warning,
-              message: this.props.intl.formatMessage(MESSAGES.loginFailed)
+              message: this.formatMessage(LOGIN_MESSAGES.loginFailed)
             } as ValidationObject
           ]
         });
@@ -239,21 +285,33 @@ class Login extends React.Component<LoginProps, LoginState> {
           <Row>
             <Col md={6}>
               <LoginHeading>
-                Log in using your social media account
+                {this.formatMessage(LOGIN_MESSAGES.logInPrompt)}
               </LoginHeading>
               <CenteredButtonGroup>
                 <Button
                   style={{ width: '33.33%' }}
-                  title="Log in with Facebook"
+                  title={this.formatMessage(
+                    LOGIN_MESSAGES.logInWithFacebookTitle
+                  )}
                 >
                   <i className="facebook" />
                 </Button>
                 <Spacer />
-                <Button style={{ width: '33.33%' }} title="Log in with Google">
+                <Button
+                  style={{ width: '33.33%' }}
+                  title={this.formatMessage(
+                    LOGIN_MESSAGES.logInWithGoogleTitle
+                  )}
+                >
                   <i className="google" />
                 </Button>
                 <Spacer />
-                <Button style={{ width: '33.33%' }} title="Log in with Twitter">
+                <Button
+                  style={{ width: '33.33%' }}
+                  title={this.formatMessage(
+                    LOGIN_MESSAGES.logInWithTwitterTitle
+                  )}
+                >
                   <i className="twitter" />
                 </Button>
               </CenteredButtonGroup>
@@ -272,7 +330,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                     margin: '0 3px'
                   }}
                 >
-                  OR
+                  {this.formatMessage(LOGIN_MESSAGES.logInOr)}
                 </span>
                 <span style={{ fontFamily: 'sans-serif' }}>———</span>
               </P>
@@ -285,24 +343,30 @@ class Login extends React.Component<LoginProps, LoginState> {
             </Col>
             <FirstTimeCol offsetSm={1} md={5}>
               <Row>
-                <LoginHeading>First time?</LoginHeading>
+                <LoginHeading>
+                  {this.formatMessage(LOGIN_MESSAGES.logInFirstTime)}
+                </LoginHeading>
                 {/*TODO why isn't the margin collapsing between the H6 & P?*/}
-                <P style={{ marginTop: 0 }}>
-                  You don't need an account to use{' '}
-                  <span
-                    style={{
-                      color: this.props.theme.styles.colour.primary,
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    MoodleNet
-                  </span>
-                  . You can browse as a guest using the button below.
-                </P>
-                <P>
-                  To participate in discussions you need to sign up. Create an
-                  account on the left or use a social media account to log in.
-                </P>
+                <FormattedMessage>
+                  {message => {
+                    const [before, after] = message.split('MoodleNet');
+                    return (
+                      <P style={{ marginTop: 0 }}>
+                        {before}
+                        <span
+                          style={{
+                            color: this.props.theme.styles.colour.primary,
+                            fontWeight: 'bold'
+                          }}
+                        >
+                          MoodleNet
+                        </span>
+                        {after}
+                      </P>
+                    );
+                  }}
+                </FormattedMessage>
+                <P>{this.formatMessage(LOGIN_MESSAGES.signUpPrompt)}</P>
               </Row>
               <Row
                 style={{
