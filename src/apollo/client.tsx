@@ -98,12 +98,14 @@ export default async function initialise() {
     const result = await client.query<MeQueryResult>({
       query: meQuery
     });
-
+    console.log('hey');
+    console.log(result);
     localUser = {
       isAuthenticated: true,
       data: result.data.me
     };
   } catch (err) {
+    console.log('heymalemale');
     console.error(err);
 
     if (err.message.includes('You are not logged in')) {

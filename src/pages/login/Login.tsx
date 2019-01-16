@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { compose, withHandlers, withState } from 'recompose';
+import { compose } from 'recompose';
 import { graphql, OperationOption } from 'react-apollo';
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
 import { Col, Row } from '@zendeskgarden/react-grid';
@@ -24,7 +24,7 @@ const { getUserQuery } = require('../../graphql/getUser.client.graphql');
 const { setUserMutation } = require('../../graphql/setUser.client.graphql');
 // TODO make the login mutation also retrieve the user so a separate request is not necessary
 const { loginMutation } = require('../../graphql/login.graphql');
-import SignupModal from '../../components/elements/SignupModal';
+// import SignupModal from '../../components/elements/SignupModal';
 const tt = {
   with: {
     fb: 'Sign in with Facebook',
@@ -273,10 +273,10 @@ class Login extends React.Component<LoginProps, LoginState> {
             </Link>
           </Col>
         </Row> */}
-          <SignupModal
+          {/* <SignupModal
             toggleModal={this.props.handleSignup}
             modalIsOpen={this.props.isOpen}
-          />
+          /> */}
         </BodyCenterContent>
       </>
     );
@@ -308,9 +308,9 @@ export default compose(
   withTheme,
   withUser,
   withSetLocalUser,
-  withLogin,
-  withState('isOpen', 'onOpen', false),
-  withHandlers({
-    handleSignup: props => () => props.onOpen(!props.isOpen)
-  })
+  withLogin
+  // withState('isOpen', 'onOpen', false),
+  // withHandlers({
+  //   handleSignup: props => () => props.onOpen(!props.isOpen)
+  // })
 )(RedirectIfAuthenticated);
