@@ -19,7 +19,7 @@ import { GRAPHQL_ENDPOINT, PHOENIX_SOCKET_ENDPOINT } from '../constants';
 
 import { onError } from 'apollo-link-error';
 
-const { meQuery } = require('../graphql/getUser.client.graphql');
+const meQuery = require('../graphql/getUser.client.graphql');
 const { setUserMutation } = require('../graphql/setUser.client.graphql');
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -137,7 +137,7 @@ const client = new ApolloClient({
 
 interface MeQueryResult extends ApolloQueryResult<object> {
   // TODO don't use any type
-  me: any;
+  user: any;
 }
 
 /**
@@ -152,24 +152,17 @@ export default async function initialise() {
     const result = await client.query<MeQueryResult>({
       query: meQuery
     });
-    console.log('logged in');
-    console.log(result);
     localUser = {
       isAuthenticated: true,
       data: {
-        ...result.data.me.user,
-        email: result.data.me.email
+        ...result.data.user.data
       }
     };
   } catch (err) {
-    console.log('err');
-    console.error(err.message);
-
     if (err.message.includes('You are not logged in')) {
       localStorage.removeItem('user_access_token');
     } else {
       //TODO handle unknown error / warn user?
-      console.log('noi siamo qui');
     }
 
     localUser = {

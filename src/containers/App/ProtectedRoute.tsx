@@ -20,6 +20,8 @@ interface ProtectedRouteProps extends RouteComponentProps {
  * @constructor
  */
 function ProtectedRoute({ component: Component, data, ...rest }) {
+  console.log('protected');
+  console.log(rest);
   return (
     <Route
       {...rest}
