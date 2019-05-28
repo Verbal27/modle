@@ -56,8 +56,8 @@ const Resource: React.SFC<Props> = props => {
             {!props.coreIntegrationURL ? null : (
               <Actions>
                 <a href={props.coreIntegrationURL} target="_top">
-                  <Button hovered>
-                    <Trans>To Moodle!</Trans>
+                  <Button secondary hovered>
+                    <Trans>Import</Trans>
                   </Button>
                 </a>
               </Actions>
