@@ -161,7 +161,6 @@ class CommunitiesFeatured extends React.Component<Props, State> {
                                 <CollectionCard
                                   key={i}
                                   collection={comm.node}
-                                  communityId={comm.node.localId}
                                 />
                               )
                             )}
@@ -235,6 +234,7 @@ const withGetCollections = graphql<
   }
 >(getUserQuery, {
   options: (props: Props) => ({
+    fetchPolicy: 'no-cache',
     variables: {
       id: Number(props.match.params.id),
       limitComm: 15,
