@@ -44,7 +44,7 @@ function getLogo() {
  * MoodleNet Logo component.
  * @param link {Boolean} wrap Logo component in a Link to the homepage
  */
-export default ({ link = true, big }: LogoProps) => {
+export default function Logo({ link = true, big }: LogoProps) {
   return (
     <>
       <LogoH1 big={big}>
@@ -54,4 +54,4 @@ export default ({ link = true, big }: LogoProps) => {
       </LogoH1>
     </>
   );
-};
+}

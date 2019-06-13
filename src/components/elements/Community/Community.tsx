@@ -4,7 +4,7 @@ import H5 from '../../typography/H5/H5';
 import P from '../../typography/P/P';
 import { Users, Collection, Message } from '../Icons';
 // import Join from './Join';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { clearFix } from 'polished';
 const PlaceholderImg = require('../Icons/communityPlaceholder.png');
 
@@ -32,68 +32,63 @@ const Community: React.SFC<Props> = ({
   externalId
 }) => (
   <Wrapper>
-    <Link
+    {/* <Link
       to={
         id
           ? `/communities/${id}`
           : `/communities/federate?url=${encodeURI(externalId)}`
       }
-    >
-      <WrapperImage>
-        <Img
-          style={{
-            backgroundImage: `url(${icon || PlaceholderImg})`
-          }}
-        />
-      </WrapperImage>
-      <H5>
-        {title.length > 60 ? title.replace(/^(.{56}[^\s]*).*/, '$1...') : title}
-      </H5>
+    > */}
+    <WrapperImage>
+      <Img
+        style={{
+          backgroundImage: `url(${icon || PlaceholderImg})`
+        }}
+      />
+    </WrapperImage>
+    <H5>
+      {title.length > 60 ? title.replace(/^(.{56}[^\s]*).*/, '$1...') : title}
+    </H5>
 
-      <Summary>
-        {summary.length > 160
-          ? summary.replace(/^([\s\S]{156}[^\s]*)[\s\S]*/, '$1...')
-          : summary}
-      </Summary>
-      <SecondaryActions>
-        <Actions>
-          <Members>
-            {followersCount || 0}
-            <span>
-              <Users
-                width={16}
-                height={16}
-                strokeWidth={2}
-                color={'#1e1f2480'}
-              />
-            </span>
-          </Members>
-          <Members>
-            {collectionsCount || 0}
-            <span>
-              <Collection
-                width={16}
-                height={16}
-                strokeWidth={2}
-                color={'#1e1f2480'}
-              />
-            </span>
-          </Members>
-          <Members>
-            {threadsCount || 0}
-            <span>
-              <Message
-                width={16}
-                height={16}
-                strokeWidth={2}
-                color={'#1e1f2480'}
-              />
-            </span>
-          </Members>
-        </Actions>
-        {/* <Join externalId={externalId} followed={followed} id={id} /> */}
-      </SecondaryActions>
-    </Link>
+    <Summary>
+      {summary.length > 160
+        ? summary.replace(/^([\s\S]{156}[^\s]*)[\s\S]*/, '$1...')
+        : summary}
+    </Summary>
+    <SecondaryActions>
+      <Actions>
+        <Members>
+          {followersCount || 0}
+          <span>
+            <Users width={16} height={16} strokeWidth={2} color={'#1e1f2480'} />
+          </span>
+        </Members>
+        <Members>
+          {collectionsCount || 0}
+          <span>
+            <Collection
+              width={16}
+              height={16}
+              strokeWidth={2}
+              color={'#1e1f2480'}
+            />
+          </span>
+        </Members>
+        <Members>
+          {threadsCount || 0}
+          <span>
+            <Message
+              width={16}
+              height={16}
+              strokeWidth={2}
+              color={'#1e1f2480'}
+            />
+          </span>
+        </Members>
+      </Actions>
+      {/* <Join externalId={externalId} followed={followed} id={id} /> */}
+    </SecondaryActions>
+    {/* </Link> */}
   </Wrapper>
 );
 

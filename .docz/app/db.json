@@ -1,0 +1,2116 @@
+{
+  "config": {
+    "title": "Moodlenet styleguide",
+    "description": "Moodlenet documentation",
+    "menu": [],
+    "version": "0.1.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {
+      "colors": {
+        "primary": "tomato"
+      }
+    },
+    "separator": "-",
+    "typescript": true,
+    "wrapper": "src/styleguide/Wrapper"
+  },
+  "props": [
+    {
+      "key": "src/styleguide/Wrapper.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Wrapper",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/types/Collection.tsx",
+      "value": []
+    },
+    {
+      "key": "src/types/Comment.tsx",
+      "value": []
+    },
+    {
+      "key": "src/types/Community.tsx",
+      "value": []
+    },
+    {
+      "key": "src/types/Resource.tsx",
+      "value": []
+    },
+    {
+      "key": "src/types/User.tsx",
+      "value": []
+    },
+    {
+      "key": "src/containers/App/App.tsx",
+      "value": [
+        {
+          "description": "App container.\n\nSets up app-wide state which contains which locale is in use, for example.\n\nIt also wraps the whole application tree in various providers:\n\n  - ThemeProvider: used to theme all Zendesk Garden components\n\n  - LocaleContext.Provider: used to give children access to the\n    application locale API in order to set the active locale\n\n  - I18nProvider: used to enable localisation throughout the app",
+          "displayName": "App",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/containers/App/ProtectedRoute.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "ProtectedRoute",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/containers/App/Router.tsx",
+      "value": [
+        {
+          "description": "The application routes definition.\n\nNote that all routes requiring the user to be authenticated are within\nthe ProtectedRoute component, which then delegates further routing to a\nSwitch route component.",
+          "displayName": "Router",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/pages/Profile/Hero.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Hero",
+          "methods": [],
+          "props": {
+            "user": {
+              "defaultValue": null,
+              "description": "",
+              "name": "user",
+              "parent": {
+                "fileName": "moodlenet/src/pages/Profile/Hero.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "{ name: string; summary: string; icon: string; preferredUsername: string; location: string; }"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/pages/collections.collection/CollectionsCollection.tsx",
+      "value": []
+    },
+    {
+      "key": "src/pages/communities.all/CommunitiesAll.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "WrapperCont",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "Wrapper",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "List",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/pages/communities.community/CommunitiesCommunity.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Actions",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "Create",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/pages/communities.community/Community.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Footer",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "WrapperTab",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "OverlayTab",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "Community",
+          "methods": [],
+          "props": {
+            "collections": {
+              "defaultValue": null,
+              "description": "",
+              "name": "collections",
+              "parent": {
+                "fileName": "moodlenet/src/pages/communities.community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            },
+            "community": {
+              "defaultValue": null,
+              "description": "",
+              "name": "community",
+              "parent": {
+                "fileName": "moodlenet/src/pages/communities.community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            },
+            "fetchMore": {
+              "defaultValue": null,
+              "description": "",
+              "name": "fetchMore",
+              "parent": {
+                "fileName": "moodlenet/src/pages/communities.community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            },
+            "type": {
+              "defaultValue": null,
+              "description": "",
+              "name": "type",
+              "parent": {
+                "fileName": "moodlenet/src/pages/communities.community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "match": {
+              "defaultValue": null,
+              "description": "",
+              "name": "match",
+              "parent": {
+                "fileName": "moodlenet/src/pages/communities.community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/pages/communities.community/Join.tsx",
+      "value": []
+    },
+    {
+      "key": "src/pages/login/Login.tsx",
+      "value": []
+    },
+    {
+      "key": "src/pages/login/LoginForm.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "LoginForm",
+          "methods": [],
+          "props": {
+            "onSubmit": {
+              "defaultValue": null,
+              "description": "",
+              "name": "onSubmit",
+              "required": true,
+              "type": {
+                "name": "Function"
+              }
+            },
+            "onInputChange": {
+              "defaultValue": null,
+              "description": "",
+              "name": "onInputChange",
+              "required": true,
+              "type": {
+                "name": "Function"
+              }
+            },
+            "authenticating": {
+              "defaultValue": null,
+              "description": "",
+              "name": "authenticating",
+              "required": true,
+              "type": {
+                "name": "boolean"
+              }
+            },
+            "validation": {
+              "defaultValue": null,
+              "description": "",
+              "name": "validation",
+              "required": true,
+              "type": {
+                "name": "ValidationObject[]"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/pages/not-found/NotFound.tsx",
+      "value": []
+    },
+    {
+      "key": "src/pages/resources.resource/ResourcesResource.tsx",
+      "value": []
+    },
+    {
+      "key": "src/pages/search/Search.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Search",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/pages/search/SearchPlaceholder.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "SearchPlaceholder",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/brand/Logo/Logo.tsx",
+      "value": [
+        {
+          "description": "MoodleNet Logo component.\n@param link wrap Logo component in a Link to the homepage",
+          "displayName": "Logo",
+          "methods": [],
+          "props": {
+            "link": {
+              "defaultValue": null,
+              "description": "",
+              "name": "link",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "big": {
+              "defaultValue": null,
+              "description": "",
+              "name": "big",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/chrome/Body/Body.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Body",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/chrome/Discussion/CommentPreview.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CommentPreview",
+          "methods": [],
+          "props": {
+            "author": {
+              "defaultValue": null,
+              "description": "",
+              "name": "author",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "{ id: string; name: string; icon: string; }"
+              }
+            },
+            "comment": {
+              "defaultValue": null,
+              "description": "",
+              "name": "comment",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "{ id: string; body: string; date: number; }"
+              }
+            },
+            "thread": {
+              "defaultValue": null,
+              "description": "",
+              "name": "thread",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "totalReplies": {
+              "defaultValue": null,
+              "description": "",
+              "name": "totalReplies",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "noAction": {
+              "defaultValue": null,
+              "description": "",
+              "name": "noAction",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "type": {
+              "defaultValue": null,
+              "description": "",
+              "name": "type",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "selectThread": {
+              "defaultValue": null,
+              "description": "",
+              "name": "selectThread",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "(number: any) => number"
+              }
+            },
+            "selectedThread": {
+              "defaultValue": null,
+              "description": "",
+              "name": "selectedThread",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "number"
+              }
+            },
+            "communityId": {
+              "defaultValue": null,
+              "description": "",
+              "name": "communityId",
+              "parent": {
+                "fileName": "moodlenet/src/components/chrome/Discussion/CommentPreview.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/chrome/Discussion/Discussion.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/chrome/Main/Main.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Main",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/chrome/Menu/Menu.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/chrome/Menu/MenuNav.tsx",
+      "value": [
+        {
+          "description": "The MenuNav component contains the buttons for navigating the user\nmenu (component: Menu) and appears top-left of the application at\nall times. Clicking on a button in the MenuNav invokes the Menu\ncomponent from the right.",
+          "displayName": "MenuNav",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/chrome/Nav/Nav.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/chrome/Tabs/Tabs.tsx",
+      "value": [
+        {
+          "description": "Tabs component.\n@param children children of tabs\n@param button button to add on right side of tabs\n@param props tabs component props\n@constructor",
+          "displayName": "Tabs",
+          "methods": [],
+          "props": {}
+        },
+        {
+          "description": "TabsPanel component.\n@param children children of tabs panel\n@param props tabs panel props\n@constructor",
+          "displayName": "TabPanel",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Avatar/Avatar.tsx",
+      "value": [
+        {
+          "description": "Avatar component.\n@param children children of Avatar\n@param size size of avatar\n@param marked whether blue dot should appear on avatar\n@param className additional class names of avatar\n@param props avatar props",
+          "displayName": "Avatar",
+          "methods": [],
+          "props": {
+            "size": {
+              "defaultValue": null,
+              "description": "",
+              "name": "size",
+              "required": false,
+              "type": {
+                "name": "\"small\" | \"large\" | undefined"
+              }
+            },
+            "marked": {
+              "defaultValue": null,
+              "description": "",
+              "name": "marked",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "className": {
+              "defaultValue": null,
+              "description": "",
+              "name": "className",
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Button/Button.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Button",
+          "methods": [],
+          "props": {
+            "secondary": {
+              "defaultValue": null,
+              "description": "",
+              "name": "secondary",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "active": {
+              "defaultValue": null,
+              "description": "",
+              "name": "active",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "basic": {
+              "defaultValue": null,
+              "description": "",
+              "name": "basic",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "buttonRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "buttonRef",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "Function | undefined"
+              }
+            },
+            "danger": {
+              "defaultValue": null,
+              "description": "",
+              "name": "danger",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "focused": {
+              "defaultValue": null,
+              "description": "",
+              "name": "focused",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "hovered": {
+              "defaultValue": null,
+              "description": "",
+              "name": "hovered",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "link": {
+              "defaultValue": null,
+              "description": "",
+              "name": "link",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "muted": {
+              "defaultValue": null,
+              "description": "",
+              "name": "muted",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "pill": {
+              "defaultValue": null,
+              "description": "",
+              "name": "pill",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "primary": {
+              "defaultValue": null,
+              "description": "",
+              "name": "primary",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "selected": {
+              "defaultValue": null,
+              "description": "",
+              "name": "selected",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "size": {
+              "defaultValue": null,
+              "description": "",
+              "name": "size",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "\"small\" | \"large\" | undefined"
+              }
+            },
+            "stretched": {
+              "defaultValue": null,
+              "description": "",
+              "name": "stretched",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Button/Button.tsx",
+                "name": "ButtonProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "",
+          "displayName": "LoaderButton",
+          "methods": [],
+          "props": {
+            "text": {
+              "defaultValue": null,
+              "description": "",
+              "name": "text",
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            },
+            "loading": {
+              "defaultValue": null,
+              "description": "",
+              "name": "loading",
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            },
+            "type": {
+              "defaultValue": null,
+              "description": "",
+              "name": "type",
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Card/Card.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Collection/Join.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Collection/CollectionSmall.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CollectionSmall",
+          "methods": [],
+          "props": {
+            "collection": {
+              "defaultValue": null,
+              "description": "",
+              "name": "collection",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Collection/CollectionSmall.tsx",
+                "name": "CollectionProps"
+              },
+              "required": true,
+              "type": {
+                "name": "Collection"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Comment/Comment.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Comment",
+          "methods": [],
+          "props": {
+            "noAuthor": {
+              "defaultValue": null,
+              "description": "",
+              "name": "noAuthor",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "author": {
+              "defaultValue": null,
+              "description": "",
+              "name": "author",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "any"
+              }
+            },
+            "comment": {
+              "defaultValue": null,
+              "description": "",
+              "name": "comment",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "{ id: string; body: string; date: number; }"
+              }
+            },
+            "thread": {
+              "defaultValue": null,
+              "description": "",
+              "name": "thread",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "totalReplies": {
+              "defaultValue": null,
+              "description": "",
+              "name": "totalReplies",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "noAction": {
+              "defaultValue": null,
+              "description": "",
+              "name": "noAction",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "selectThread": {
+              "defaultValue": null,
+              "description": "",
+              "name": "selectThread",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Comment/Comment.tsx",
+                "name": "EventProps"
+              },
+              "required": true,
+              "type": {
+                "name": "(number: any) => number"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Community/CommunitySmall.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "CommunitySmall",
+          "methods": [],
+          "props": {
+            "collection": {
+              "defaultValue": null,
+              "description": "",
+              "name": "collection",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/CommunitySmall.tsx",
+                "name": "CollectionProps"
+              },
+              "required": true,
+              "type": {
+                "name": "Collection"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Community/Join.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Flag/Flag.tsx",
+      "value": [
+        {
+          "description": "Display a country flag icon using the `flag-icon-css` library.\n@param flag class name of the flag to display",
+          "displayName": "Flag",
+          "methods": [],
+          "props": {
+            "flag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "flag",
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Link/Link.tsx",
+      "value": [
+        {
+          "description": "Link component.\n@param className additional class names for the link\n@param hovered whether the link should appear in hovered state\n@param active whether the link should appear in active state\n@param children children of the link\n@param props props of the link",
+          "displayName": "Link",
+          "methods": [],
+          "props": {
+            "hovered": {
+              "defaultValue": null,
+              "description": "",
+              "name": "hovered",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "active": {
+              "defaultValue": null,
+              "description": "",
+              "name": "active",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Loader/Loader.tsx",
+      "value": [
+        {
+          "description": "Loader spinner component.\n@param props props of the loader\n@constructor",
+          "displayName": "Loader",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Notification/Notification.tsx",
+      "value": [
+        {
+          "description": "Loader component.\n@param type notification type\n@param content notification inner content, i.e. message\n@param when when notification was received\n@param props props of the notification",
+          "displayName": "Notification",
+          "methods": [],
+          "props": {
+            "type": {
+              "defaultValue": null,
+              "description": "",
+              "name": "type",
+              "parent": {
+                "fileName": "src/components/elements/Notification/Notification.tsx",
+                "name": "NotificationProps"
+              },
+              "required": true,
+              "type": {
+                "name": "NotificationType"
+              }
+            },
+            "when": {
+              "defaultValue": null,
+              "description": "",
+              "name": "when",
+              "parent": {
+                "fileName": "src/components/elements/Notification/Notification.tsx",
+                "name": "NotificationProps"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "content": {
+              "defaultValue": null,
+              "description": "",
+              "name": "content",
+              "parent": {
+                "fileName": "src/components/elements/Notification/Notification.tsx",
+                "name": "NotificationProps"
+              },
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Pagination/Pagination.tsx",
+      "value": [
+        {
+          "description": "Pagination component.\n@param props props of the pagination component",
+          "displayName": "Pagination",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Resource/Resource.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Tag/Tag.tsx",
+      "value": [
+        {
+          "description": "Tag container component.",
+          "displayName": "TagContainer",
+          "methods": [],
+          "props": {
+            "theme": {
+              "defaultValue": null,
+              "description": "",
+              "name": "theme",
+              "required": false,
+              "type": {
+                "name": "ThemeInterface | undefined"
+              }
+            },
+            "innerRef": {
+              "defaultValue": null,
+              "description": "",
+              "name": "innerRef",
+              "required": false,
+              "type": {
+                "name": "((instance: any) => void) | RefObject<HTMLElement | SVGElement | Component<{}, {}, any>> | undefined"
+              }
+            }
+          }
+        },
+        {
+          "description": "Tag component.\n@param children children of the tag\n@param closeable display a cross next to tag text?\n@param onClose on tag click callback, i.e. user \"closes\" the tag\n@param props props of the tag\n@constructor",
+          "displayName": "Tag",
+          "methods": [],
+          "props": {
+            "closeable": {
+              "defaultValue": null,
+              "description": "",
+              "name": "closeable",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "onClose": {
+              "defaultValue": null,
+              "description": "",
+              "name": "onClose",
+              "required": false,
+              "type": {
+                "name": "(() => void) | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Talk/Preview.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Preview",
+          "methods": [],
+          "props": {
+            "toggleModal": {
+              "defaultValue": null,
+              "description": "",
+              "name": "toggleModal",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Talk/Preview.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "any"
+              }
+            },
+            "modalIsOpen": {
+              "defaultValue": null,
+              "description": "",
+              "name": "modalIsOpen",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Talk/Preview.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            },
+            "values": {
+              "defaultValue": null,
+              "description": "",
+              "name": "values",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Talk/Preview.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "any"
+              }
+            },
+            "isSubmitting": {
+              "defaultValue": null,
+              "description": "",
+              "name": "isSubmitting",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Talk/Preview.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "boolean"
+              }
+            },
+            "selectThread": {
+              "defaultValue": null,
+              "description": "",
+              "name": "selectThread",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Talk/Preview.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "(number: any) => number"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Talk/Reply.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Talk/Talk.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Talk/Thread.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/elements/Talk/ThreadCollection.tsx",
+      "value": []
+    },
+    {
+      "key": "src/components/inputs/Checkbox/Checkbox.tsx",
+      "value": [
+        {
+          "description": "Checkbox component.\n@param children children of checkbox\n@param props props of checkbox\n@constructor",
+          "displayName": "Checkbox",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/inputs/LanguageSelect/LanguageSelect.tsx",
+      "value": [
+        {
+          "description": "LanguageSelect component.\nAllows the user to select the active locale being used in the application.",
+          "displayName": "LanguageSelect",
+          "methods": [],
+          "props": {
+            "fullWidth": {
+              "defaultValue": null,
+              "description": "",
+              "name": "fullWidth",
+              "required": false,
+              "type": {
+                "name": "boolean | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/inputs/Text/Text.tsx",
+      "value": [
+        {
+          "description": "Text component.\n@param button children of text component\n@param props props of text component\n@constructor",
+          "displayName": "Text",
+          "methods": [],
+          "props": {
+            "button": {
+              "defaultValue": null,
+              "description": "",
+              "name": "button",
+              "required": false,
+              "type": {
+                "name": "Element | undefined"
+              }
+            },
+            "validation": {
+              "defaultValue": null,
+              "description": "",
+              "name": "validation",
+              "required": false,
+              "type": {
+                "name": "ValidationType | null | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/inputs/TextArea/Textarea.tsx",
+      "value": [
+        {
+          "description": "Textarea component.\n@param props props of Textarea\n@constructor",
+          "displayName": "Textarea",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/H1/H1.tsx",
+      "value": [
+        {
+          "description": "H1 component.\n@param children children of the header\n@param tag the element tag name\n@param props props of the tag\n@constructor",
+          "displayName": "H1",
+          "methods": [],
+          "props": {
+            "tag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "tag",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "style": {
+              "defaultValue": null,
+              "description": "",
+              "name": "style",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/H2/H2.tsx",
+      "value": [
+        {
+          "description": "H2 component.\n@param children children of the header\n@param tag the element tag name\n@param props props of the tag\n@constructor",
+          "displayName": "H2",
+          "methods": [],
+          "props": {
+            "tag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "tag",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "style": {
+              "defaultValue": null,
+              "description": "",
+              "name": "style",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/H3/H3.tsx",
+      "value": [
+        {
+          "description": "H3 component.\n@param children children of the header\n@param tag the element tag name\n@param props props of the tag\n@constructor",
+          "displayName": "H3",
+          "methods": [],
+          "props": {
+            "tag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "tag",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "style": {
+              "defaultValue": null,
+              "description": "",
+              "name": "style",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/H4/H4.tsx",
+      "value": [
+        {
+          "description": "H4 component.\n@param children children of the header\n@param tag the element tag name\n@param props props of the tag\n@constructor",
+          "displayName": "H4",
+          "methods": [],
+          "props": {
+            "tag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "tag",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "style": {
+              "defaultValue": null,
+              "description": "",
+              "name": "style",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/H5/H5.tsx",
+      "value": [
+        {
+          "description": "H5 component.\n@param children children of the header\n@param tag the element tag name\n@param props props of the tag\n@constructor",
+          "displayName": "H5",
+          "methods": [],
+          "props": {
+            "tag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "tag",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "style": {
+              "defaultValue": null,
+              "description": "",
+              "name": "style",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/H6/H6.tsx",
+      "value": [
+        {
+          "description": "H6 component.\n@param children children of the header\n@param tag the element tag name\n@param props props of the tag\n@constructor",
+          "displayName": "H6",
+          "methods": [],
+          "props": {
+            "tag": {
+              "defaultValue": null,
+              "description": "",
+              "name": "tag",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "style": {
+              "defaultValue": null,
+              "description": "",
+              "name": "style",
+              "parent": {
+                "fileName": "moodlenet/src/components/typography/H1/H1.tsx",
+                "name": "HeadingProps"
+              },
+              "required": false,
+              "type": {
+                "name": "object | undefined"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/LI/LI.tsx",
+      "value": [
+        {
+          "description": "List item component.\n@param children children of the list item\n@constructor",
+          "displayName": "LI",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/P/P.tsx",
+      "value": [
+        {
+          "description": "Paragraph component.\n@param children children of the paragraph\n@param props props of the paragraph\n@constructor",
+          "displayName": "P",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/typography/UL/UL.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "UL",
+          "methods": [],
+          "props": {}
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Collection/Collection.tsx",
+      "value": [
+        {
+          "description": "Collection component.",
+          "displayName": "Collection",
+          "methods": [],
+          "props": {
+            "collection": {
+              "defaultValue": null,
+              "description": "",
+              "name": "collection",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Collection/Collection.tsx",
+                "name": "CollectionProps"
+              },
+              "required": true,
+              "type": {
+                "name": "Collection"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "src/components/elements/Community/Community.tsx",
+      "value": [
+        {
+          "description": "",
+          "displayName": "Community",
+          "methods": [],
+          "props": {
+            "title": {
+              "defaultValue": null,
+              "description": "",
+              "name": "title",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "icon": {
+              "defaultValue": null,
+              "description": "",
+              "name": "icon",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": false,
+              "type": {
+                "name": "string | undefined"
+              }
+            },
+            "summary": {
+              "defaultValue": null,
+              "description": "",
+              "name": "summary",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "id": {
+              "defaultValue": null,
+              "description": "",
+              "name": "id",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "followersCount": {
+              "defaultValue": null,
+              "description": "",
+              "name": "followersCount",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "number"
+              }
+            },
+            "collectionsCount": {
+              "defaultValue": null,
+              "description": "",
+              "name": "collectionsCount",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "number"
+              }
+            },
+            "followed": {
+              "defaultValue": null,
+              "description": "",
+              "name": "followed",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "boolean"
+              }
+            },
+            "externalId": {
+              "defaultValue": null,
+              "description": "",
+              "name": "externalId",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "string"
+              }
+            },
+            "threadsCount": {
+              "defaultValue": null,
+              "description": "",
+              "name": "threadsCount",
+              "parent": {
+                "fileName": "moodlenet/src/components/elements/Community/Community.tsx",
+                "name": "Props"
+              },
+              "required": true,
+              "type": {
+                "name": "number"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "key": "src/dls/Button.mdx",
+      "value": {
+        "id": "890cc804b67b4c37328a36ffaef42d9c",
+        "filepath": "src/dls/Button.mdx",
+        "link": "",
+        "slug": "src-dls-button",
+        "route": "/src-dls-button",
+        "name": "Button",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Collection.mdx",
+      "value": {
+        "name": "Collection",
+        "id": "d8d81ac049d2cd8621145c961f839ddc",
+        "filepath": "src/dls/Collection.mdx",
+        "link": "",
+        "slug": "src-dls-collection",
+        "route": "/src-dls-collection",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "collection",
+            "depth": 1,
+            "value": "Collection"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/dls/Comment.mdx",
+      "value": {
+        "id": "08e7527ef760ef49188dea4ffa1ef026",
+        "filepath": "src/dls/Comment.mdx",
+        "link": "",
+        "slug": "src-dls-comment",
+        "route": "/src-dls-comment",
+        "name": "Comment",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Community.mdx",
+      "value": {
+        "name": "Community",
+        "id": "a0e0351f85ffc7ec69d550665062f678",
+        "filepath": "src/dls/Community.mdx",
+        "link": "",
+        "slug": "src-dls-community",
+        "route": "/src-dls-community",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "community",
+            "depth": 1,
+            "value": "Community"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/dls/Feed.mdx",
+      "value": {
+        "id": "79d63632331e13724f5871bc1660dba7",
+        "filepath": "src/dls/Feed.mdx",
+        "link": "",
+        "slug": "src-dls-feed",
+        "route": "/src-dls-feed",
+        "name": "Feed",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Hero-collection.mdx",
+      "value": {
+        "id": "0754adc1c18847f940cf5b68322f99c0",
+        "filepath": "src/dls/Hero-collection.mdx",
+        "link": "",
+        "slug": "src-dls-hero-collection",
+        "route": "/src-dls-hero-collection",
+        "name": "Hero collection",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Hero-community.mdx",
+      "value": {
+        "id": "e8dcc99bea134e1b08b90f44957fee08",
+        "filepath": "src/dls/Hero-community.mdx",
+        "link": "",
+        "slug": "src-dls-hero-community",
+        "route": "/src-dls-hero-community",
+        "name": "Hero community",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Hero-user.mdx",
+      "value": {
+        "id": "04f9c70ebea9eaf003c3ee0b0817020f",
+        "filepath": "src/dls/Hero-user.mdx",
+        "link": "",
+        "slug": "src-dls-hero-user",
+        "route": "/src-dls-hero-user",
+        "name": "Hero user",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/List.mdx",
+      "value": {
+        "id": "23e96372cceb9d7820ecd7911a301cce",
+        "filepath": "src/dls/List.mdx",
+        "link": "",
+        "slug": "src-dls-list",
+        "route": "/src-dls-list",
+        "name": "List",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Menu.mdx",
+      "value": {
+        "id": "91aead306602c45b9b269f258b36e2e5",
+        "filepath": "src/dls/Menu.mdx",
+        "link": "",
+        "slug": "src-dls-menu",
+        "route": "/src-dls-menu",
+        "name": "Menu",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Modal.mdx",
+      "value": {
+        "id": "fdd9d095adf7713d25f0ed7be7893c93",
+        "filepath": "src/dls/Modal.mdx",
+        "link": "",
+        "slug": "src-dls-modal",
+        "route": "/src-dls-modal",
+        "name": "Modal",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Resource.mdx",
+      "value": {
+        "id": "52e3356691e558d41f2793cae0d069c6",
+        "filepath": "src/dls/Resource.mdx",
+        "link": "",
+        "slug": "src-dls-resource",
+        "route": "/src-dls-resource",
+        "name": "Resource",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "src/dls/Tabs.mdx",
+      "value": {
+        "id": "16a2db484e0ab09c03d2046c99d2cde6",
+        "filepath": "src/dls/Tabs.mdx",
+        "link": "",
+        "slug": "src-dls-tabs",
+        "route": "/src-dls-tabs",
+        "name": "Tabs",
+        "menu": "",
+        "headings": []
+      }
+    }
+  ]
+}
