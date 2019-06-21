@@ -162,8 +162,8 @@ const withGetInbox = graphql<
       one:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
-          ? 7
-          : 7,
+          ? 7 // prod
+          : 7, // staging
       two:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
@@ -172,27 +172,27 @@ const withGetInbox = graphql<
       three:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
-          ? 5369
+          ? 8834
           : 7633,
       four:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
-          ? 8083
+          ? 5188
           : 5939,
       five:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
-          ? 8806
+          ? 8898
           : 4241,
       six:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
-          ? 7933
+          ? 7508
           : 2900,
       seven:
         process.env.REACT_APP_GRAPHQL_ENDPOINT ===
         'https://home.moodle.net/api/graphql'
-          ? 2708
+          ? 5655
           : 2708
     }
   }
