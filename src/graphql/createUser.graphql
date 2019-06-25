@@ -1,10 +1,10 @@
 input RegistrationInput {
     email: String!
     password: String!
-    preferredUsername: String!
+    preferredUsername: String
     name: String!
-    summary: String!
-    location: String!
+    summary: String
+    location: String
 }
 
 mutation createUserMutation($user: RegistrationInput!) {

@@ -1,10 +1,10 @@
 input CollectionInput {
     name: String!
-    summary: String!
-    content: String!
-    preferredUsername: String!
+    summary: String
+    content: String
+    preferredUsername: String
     primaryLanguage: String
-    icon: String!
+    icon: String
 }
 
  mutation createCollectionMutation($communityId: String!, $collection: CollectionInput!) {

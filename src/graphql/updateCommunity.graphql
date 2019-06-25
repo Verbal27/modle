@@ -2,9 +2,9 @@ input CommunityInput {
     name: String!
     summary: String!
     content: String!
-    preferredUsername: String!
+    preferredUsername: String
     primaryLanguage: String
-    icon: String!
+    icon: String
 }
 
 mutation updateCommunityMutation($community: CommunityInput!, $communityId: String!) {

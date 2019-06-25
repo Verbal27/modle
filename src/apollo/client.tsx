@@ -89,6 +89,7 @@ const errorLink = onError(
     // console.log( 'errorLink', operation, response );
 
     if (graphQLErrors) {
+      console.log(graphQLErrors);
       graphQLErrors.map(({ message, locations, path }) =>
         handleErrorGraphQL(message, locations, path)
       );

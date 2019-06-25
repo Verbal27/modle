@@ -3,9 +3,9 @@ export default `
     id: Int!
     name: String!
     email: String!
-    bio: String!
-    preferredUsername: String!
-    location: String!
+    bio: String
+    preferredUsername: String
+    location: String
   }
   
   type Notification {
