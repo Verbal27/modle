@@ -55,3 +55,14 @@ master: # build and deploy master branch to production
   only:
     - master # Only run on production branch
     
+dev-styleguide: # build and deploy develop branch to staging
+  script:
+    - apk add --update py-pip 
+    - pip install awscli 
+    - npm install # Install all JS dependencies
+    - npm run docz:build # generate new styleguide
+    # Next install the AWS SDK and push files to S3
+    - aws s3 sync .docz/dist/ s3://${DOCS_STAGING_BUCKET}/docs/styleguide/ --delete --exclude .git --exclude README.md --acl public-read # also copy docs to (a different) S3-served website
+    - aws cloudfront create-invalidation --distribution-id ${DOCS_STAGING_DISTRIBUTION_ID} --paths '/docs/styleguide/*' # invalidate the docs CloudFront's cache to serve the new version
+  only:
+    - dev-styleguide # Only run on staging branch
