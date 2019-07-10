@@ -63,8 +63,8 @@ dev-styleguide: # build and deploy develop branch to staging
     - npm run docz:build # generate new styleguide
     - rm -rf public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
     - mv .docz/dist public # in case we want to serve them with gitlab pages
-    - mkdir site
-    - mkdir site/docs
+    - mkdir website
+    - mkdir website/docs
     - cp -r public website/docs/styleguide
     - mv website/docs/styleguide/static website/ # fix for non-relative path
     - find website/
