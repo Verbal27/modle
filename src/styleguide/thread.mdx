@@ -1,0 +1,70 @@
+---
+name: Thread
+---
+
+import Thread from '../components/elements/thread'
+import { Playground, Props } from 'docz'
+import { ThemeProvider } from './Wrapper';
+import MnetBox from '../components/elements/Box'
+import {Box} from 'rebass'
+import Comment from '../components/elements/Comment'
+import Feed from '../components/elements/TimelineItem'
+
+import 'draft-js-mention-plugin/lib/plugin.css';
+import 'draft-js-emoji-plugin/lib/plugin.css';
+// import { BrowserRouter as Router } from 'react-router-dom';
+
+# Thread
+
+
+## Simple thread
+
+<Playground>
+<ThemeProvider>
+  <Thread 
+    user={{name: 'ivan', username: 'bernini', image: 'https://source.unsplash.com/random/60x60'}}
+    content={"US House of Representatives, Committee on Financial Services writes a letter to Libra founders: Cease and desist immediately! US House of Representatives, Committee on Financial Services tries to write to Bitcoin but can't find an address ..."}
+    replies={3}
+    likes={2}
+    />
+   
+</ThemeProvider>
+</Playground>  
+
+
+## thread with replies
+
+<Playground>
+<ThemeProvider>
+     <MnetBox width={1}>
+    <Box style={{margin: "-8px"}}>
+  <Thread 
+    user={{name: 'ivan', username: 'bernini', image: 'https://source.unsplash.com/random/60x60'}}
+    content={"US House of Representatives, Committee on Financial Services writes a letter to Libra founders: Cease and desist immediately! US House of Representatives, Committee on Financial Services tries to write to Bitcoin but can't find an address ..."}
+    replies={3}
+    likes={2}
+    />
+    <Comment />
+     <Feed 
+    user={{name: 'Estrella', username: "Estrella", image: 'https://docs.moodle.org/dev/images_dev/thumb/2/2b/estrella.jpg/200px-estrella.jpg '}}
+    content="@Bohdan I’ve found that allowing my students to frame the activity in their own term really helps. Sometimes it helps them to use something they already find motivating (like video games) as a ‘hook’!  +engaginglearners #motivation #studentcentred"
+    replies={3}
+    likes={2}
+    />
+   <Feed 
+    user={{name: 'Seung', username: "seung", image: 'https://docs.moodle.org/dev/images_dev/5/53/seung.jpg'}}
+    content="My favourite model for #instructionaldesign is still Gagne’s ‘nine events’ as outlined here: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4017416. I still struggle with the ‘Elicit performance’ part of it, though, to be honest! 😂 +IDmodels #learningdesign"
+    replies={3}
+    likes={2}
+    />
+   <Feed 
+    user={{name: 'Amaraah', username: "Amaraah", image: 'https://docs.moodle.org/dev/images_dev/thumb/4/4e/ammaarah.jpg/200px-ammaarah.jpg'}}
+    content="I know a lot of people turn their nose up at Bloom’s #Taxonomy these days, but the revised version by Anderson and Krathwol works really well. I’ve found these ‘action verbs’ particularly helpful: https://www.apu.edu/live_data/files/333/blooms_taxonomy_action_verbs.pdf +IDmodels #bloomstaxonomy #triggers"
+    replies={3}
+    likes={2}
+    />
+    </Box>
+   </MnetBox>
+   
+</ThemeProvider>
+</Playground>  

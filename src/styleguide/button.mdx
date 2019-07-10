@@ -1,0 +1,29 @@
+---
+name: Button
+---
+
+import { Playground, Props } from 'docz'
+import {PrimaryBtn, OutlineBtn} from '../components/elements/Button'
+import { ThemeProvider } from './Wrapper';
+
+
+# Button
+
+<Props of={PrimaryBtn} />
+
+## Primary button
+
+<Playground>
+<ThemeProvider>
+  <PrimaryBtn>Click me</PrimaryBtn>
+</ThemeProvider>
+</Playground>  
+
+
+## Outline button
+
+<Playground>
+<ThemeProvider>
+  <OutlineBtn>Click me</OutlineBtn>
+</ThemeProvider>
+</Playground>  
