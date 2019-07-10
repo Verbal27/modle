@@ -1,6 +1,31 @@
 import createTheme from './create';
 
 const themeLight = createTheme({
+  buttons: {
+    primary: {
+      backgroundColor: '#f98012',
+      color: '#fff',
+      borderRadius: '3px'
+    },
+    outline: {
+      color: '#000000e0',
+      borderColor: '#f98012',
+      backgroundColor: 'transparent',
+      borderRadius: '3px'
+    }
+  },
+  breakpoints: ['40em', '52em', '64em'],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  colors: {
+    orange: '#f98012',
+    black: '#000000e0',
+    gray: '#00050',
+    lightgray: '#f6f6ff'
+  },
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
+  fonts: {
+    sans: 'Open-sans, sans-serif'
+  },
   colour: {
     background: '#f5f6f7',
     secondaryBg: '#fff',
@@ -94,6 +119,31 @@ const themeLight = createTheme({
 });
 
 const themeDark = createTheme({
+  buttons: {
+    primary: {
+      backgroundColor: '#f98012',
+      color: '#fff',
+      borderRadius: '3px'
+    },
+    outline: {
+      color: '#00080',
+      borderColor: '#f98012',
+      backgroundColor: 'transparent',
+      borderRadius: '3px'
+    }
+  },
+  breakpoints: ['40em', '52em', '64em'],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  colors: {
+    orange: '#f98012',
+    black: '#00080',
+    gray: '#00050',
+    lightgray: '#f6f6ff'
+  },
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
+  fonts: {
+    sans: 'Open-sans, sans-serif'
+  },
   colour: {
     background: '#282a36',
     secondaryBg: '#46495a',

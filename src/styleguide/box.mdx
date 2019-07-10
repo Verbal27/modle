@@ -1,0 +1,108 @@
+---
+name: Box
+---
+
+import { Playground, Props } from 'docz'
+import Box from '../components/elements/Box'
+import Avatar from '../components/elements/Avatar'
+import Badge from '../components/elements/Badge'
+import { ThemeProvider } from './Wrapper';
+import {Link, Text, Flex} from 'rebass'
+
+# Box
+
+
+## An empty Box
+<Playground>
+    <ThemeProvider>
+<Box title="Activities" icon="activity" />
+</ThemeProvider>
+</Playground>
+
+## A box with text
+<Playground>
+    <ThemeProvider>
+<Box title="Activities" icon="activity"  text="Every kind of instructional design model that you can think of is shared here." />
+</ThemeProvider>
+</Playground>
+
+
+## A box with list
+
+<Playground>
+  <ThemeProvider>
+    <Box
+        icon="hashtag"
+        title="Hashtags"
+        type="list"
+        items={[
+        { title: <Link color="#f98012" href="http://google.com">#Extreme</Link>},
+        { title: <Link color="#f98012" href="http://google.com">#Moodlenet</Link>},
+        { title: <Link color="#f98012" href="http://google.com">#mondial</Link> },
+        { title: <Link color="#f98012" href="http://google.com">#mountain</Link> }
+        ]}
+    />
+  </ThemeProvider>
+</Playground>
+
+
+## A box with list and metadata
+
+<Playground>
+  <ThemeProvider>
+   <Box
+    title="Participants"
+    type="list"
+    icon="users"
+    items={[
+    { title: "Admins", metadata: <Badge>8</Badge> },
+    { title: "Members", metadata: <Badge>234</Badge> }
+    ]}
+  />              
+  </ThemeProvider>
+</Playground>
+
+
+## A box with communities
+
+<Playground>
+  <ThemeProvider>
+   <Box
+    title="Sidebar"
+  > 
+    <Flex
+      p={3}
+      m={-2}
+      style={{borderBottom: "1px solid #efefef"}}
+      alignItems='center'
+    >
+    <Avatar width={36} height={36} mr={2} src='https://source.unsplash.com/random/60x60' />
+    <Text fontWeight='bold' fontSize={[2, 3]}>Freeclimbing Extreme</Text>
+    </Flex>
+    <Flex 
+     p={3}
+      m={-2}
+      style={{borderBottom: "1px solid #efefef"}}
+      alignItems='center'>
+    <Avatar width={36} height={36}  mr={2} src='https://source.unsplash.com/random/60x60' />
+    <Text fontWeight='bold' fontSize={[2, 3]}>Moodlenet welcome</Text>
+    </Flex>
+    <Flex  p={3}
+      m={-2}
+      style={{borderBottom: "1px solid #efefef"}}
+      alignItems='center'
+      >
+    <Avatar width={36} height={36}  mr={2} src='https://source.unsplash.com/random/60x60' />
+    <Text fontWeight='bold'  fontSize={[2, 3]}>Solarpunk</Text>
+    </Flex>
+    <Flex  p={3}
+      m={-2}
+      style={{borderBottom: "1px solid #efefef"}}
+      alignItems='center'>
+    <Avatar width={36} height={36}  mr={2} src='https://source.unsplash.com/random/60x60' />
+    <Text   fontWeight='bold' fontSize={[2, 3]}>p2p foundation</Text>
+    </Flex>           
+  </Box>              
+  </ThemeProvider>
+</Playground>
+
