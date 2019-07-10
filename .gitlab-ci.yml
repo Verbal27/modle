@@ -61,8 +61,18 @@ dev-styleguide: # build and deploy develop branch to staging
     - pip install awscli 
     - npm install # Install all JS dependencies
     - npm run docz:build # generate new styleguide
+    - rm -rf public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
+    - mv .docz/dist public # in case we want to serve them with gitlab pages
+    - mkdir site
+    - mkdir site/docs
+    - cp -r public website/docs/styleguide
+    - mv website/docs/styleguide/static website/ # fix for non-relative path
+    - find website/
     # Next install the AWS SDK and push files to S3
-    - aws s3 sync .docz/dist/ s3://${DOCS_STAGING_BUCKET}/docs/styleguide/ --delete --exclude .git --exclude README.md --acl public-read # also copy docs to (a different) S3-served website
+    - aws s3 sync website/ s3://${DOCS_STAGING_BUCKET}/ --exclude .git --exclude README.md --acl public-read # also copy docs to (a different) S3-served website
     - aws cloudfront create-invalidation --distribution-id ${DOCS_STAGING_DISTRIBUTION_ID} --paths '/docs/styleguide/*' # invalidate the docs CloudFront's cache to serve the new version
+  artifacts:
+    paths:
+    - public # The built files for Gitlab Pages to serve
   only:
     - dev-styleguide # Only run on staging branch
