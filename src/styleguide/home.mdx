@@ -1,0 +1,76 @@
+---
+name: Abstract
+route: /
+---
+import { Box, Flex, Text, Heading } from 'rebass';
+
+# Welcome to MoodleNet styleguide
+The current styleguide aims to provide a solid foundation to build, extend and customize the MoodleNet experience. 
+The main goal is to produce a set of primitive and aggregate UI components, that will act and appear consistent with Moodle visual identity and MoodleNet system design language.
+
+
+Each MoodleNet component is:
+- stateless
+- written in `typescript`
+- styled with [styled-components](https://www.styled-components.com/) 
+- built upon [rebass](https://rebassjs.org) primitives.
+- themed
+
+---
+
+This styleguide version reflects the [MoodleNet clickable prototype](https://projects.invisionapp.com/d/main?origin=v7#/console/18048686/374475280/preview) released in july 2019 and explained in [this blog post](https://blog.moodle.net/2019/clickable-prototype/).
+Mockups are built in sketch, and are available to download.
+
+
+## Spacing
+MoodleNet uses a `8px` multiplier to manage margins and paddings to ensure consistence across the whole application.
+
+## Color palette
+
+<Flex>
+    <Box  m={1} width={[ 1/5 ]}>
+        <Box
+        p={4}
+        bg='#F5F6F7'>
+        </Box>
+        <Heading color='#3C3C3C'>Lighter</Heading>
+        <Text>#F5F6F7</Text>
+    </Box>
+    <Box m={1} width={[ 1/5 ]}>
+        <Box
+        p={4}
+        bg='rgba(0,0,0,.1)'>
+        </Box>
+        <Heading color='#3C3C3C'>Light-gray</Heading>
+        <Text>rgba(0,0,0,.1)</Text>
+    </Box>
+    <Box m={1} width={[ 1/5 ]}>
+        <Box
+        p={4}
+        bg='rgba(0,0,0,.4)'>
+        </Box>
+        <Heading color='#3C3C3C'>Gray</Heading>
+        <Text>rgba(0,0,0,.4)</Text>
+    </Box>
+    <Box m={1} width={[ 1/5 ]}>
+        <Box
+        p={4}
+        bg='#3C3C3C'>
+        </Box>
+        <Heading color='#3C3C3C'>Dark-gray</Heading>
+        <Text>#3C3C3C</Text>
+    </Box>
+    <Box m={1} width={[ 1/5 ]}>
+        <Box
+        p={4}
+        bg='#ED7E22'>
+        </Box>
+        <Heading color='#3C3C3C'>Orange</Heading>
+        <Text>#ED7E22</Text>
+    </Box>
+</Flex>
+
+## Icons
+MoodleNet uses the [Feather](https://feathericons.com/) icons pack.
+An `npm module` for react is available as well: [react-feather](https://www.npmjs.com/package/react-feather)
+
