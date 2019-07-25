@@ -1,0 +1,55 @@
+---
+name: Typography
+---
+
+import { Playground, Props } from 'docz'
+import { ThemeProvider } from './Wrapper';
+import {Text} from 'rebass'
+
+
+## Primary title
+
+<Playground>
+  <ThemeProvider>
+    <Text
+    py={2}
+    fontSize={[ 5 ]}
+    fontWeight='bold'
+    >This is a title</Text>
+  </ThemeProvider>
+</Playground>
+
+
+## Heading
+<Playground>
+  <ThemeProvider>
+<Text
+    fontSize={[ 3 ]}
+    py={2}
+    fontWeight='bold'
+    >This is a title</Text>
+  </ThemeProvider>
+</Playground>
+
+## Base
+<Playground>
+  <ThemeProvider>
+<Text
+    fontSize={[ 2 ]}
+    py={2}
+    >This is usually a paragraph.</Text>
+  </ThemeProvider>
+</Playground>
+
+
+## Small title
+<Playground>
+  <ThemeProvider>
+    <Text
+    fontSize={[ 2 ]}
+    style={{textTransform: 'uppercase'}}
+    fontWeight='bold'
+    >This is a title</Text>
+  </ThemeProvider>
+</Playground>
+
