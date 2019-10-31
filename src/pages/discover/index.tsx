@@ -1,10 +1,10 @@
 import { Trans } from '@lingui/macro';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 // import { Helmet } from 'react-helmet';
 import { TabPanel, Tabs } from 'react-tabs';
 import Loader from '../../components/elements/Loader/Loader';
-import LoadMoreTimeline from '../../components/elements/Loadmore/localInstance';
+import FetchMoreButton from '../../components/elements/Loadmore/FetchMoreButton';
 import { SuperTab, SuperTabList } from '../../components/elements/SuperTab';
 import TimelineItem from '../../components/elements/TimelineItem';
 import FeaturedCollections from '../../components/featuredCollections';
@@ -25,10 +25,32 @@ interface Props {}
 
 const Home: React.FC<Props> = props => {
   const { data, error, loading, fetchMore } = useLocalActivitiesQuery({
+    fetchPolicy: 'cache-first',
     variables: {
       limit: 15
     }
   });
+  const fetchMoreHandler = useCallback(
+    () =>
+      fetchMore({
+        variables: {
+          end: data!.localActivities.pageInfo.endCursor
+        },
+        updateQuery: (_prev, { fetchMoreResult, variables }) => {
+          const moreNodes =
+            (fetchMoreResult && fetchMoreResult.localActivities.nodes) || [];
+          const prevNodes = data!.localActivities.nodes!;
+          return {
+            ...fetchMoreResult!,
+            localActivities: {
+              ...fetchMoreResult!.localActivities,
+              nodes: [...prevNodes, ...moreNodes]
+            }
+          };
+        }
+      }),
+    [fetchMore, data]
+  );
   return (
     <MainContainer>
       <HomeBox>
@@ -67,12 +89,7 @@ const Home: React.FC<Props> = props => {
                         key={activity!.id!}
                       />
                     ))}
-                    <div style={{ padding: '8px' }}>
-                      <LoadMoreTimeline
-                        fetchMore={fetchMore}
-                        localInstance={data!.localActivities!}
-                      />
-                    </div>
+                    <FetchMoreButton fetchMore={fetchMoreHandler} />
                   </div>
                 )}
               </TabPanel>
