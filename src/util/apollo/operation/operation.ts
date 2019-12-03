@@ -1,19 +1,21 @@
-import { ApolloLink, FetchResult, Operation } from 'apollo-link';
+import { ApolloLink, Operation } from 'apollo-link';
 import { OperationDefinitionNode } from 'graphql';
 import {
+  Name,
   OperationDef,
+  OpFetchResult,
   OpRequestHandler,
-  Result,
-  VarsOperation,
-  Name
+  TypedOperation
 } from './types';
 
-export function isOp<D extends OperationDef>(
+export type OpResultHandler<D extends OperationDef> = (
+  result: OpFetchResult<D>
+) => OpFetchResult<D> | undefined | void;
+
+export const isOp = <D extends OperationDef>(
   operationName: Name<D>,
   operation: Operation
-): operation is VarsOperation<D> {
-  return operation.operationName === operationName;
-}
+): operation is TypedOperation<D> => operation.operationName === operationName;
 
 export class ApolloLinkOp<D extends OperationDef> extends ApolloLink {
   constructor(operationName: Name<D>, reqHandl: OpRequestHandler<D>) {
@@ -32,18 +34,14 @@ export const apolloLinkOp = <D extends OperationDef>(
   reqHandl: OpRequestHandler<D>
 ) => new ApolloLinkOp<D>(operationName, reqHandl);
 
-export type OpFetchResult<D extends OperationDef> = FetchResult<Result<D>>;
-export type OpResultWatcher<D extends OperationDef> = (
-  result: OpFetchResult<D>
-) => OpFetchResult<D> | undefined | void;
 export const apolloLinkOpResult = <D extends OperationDef>(
   operationName: Name<D>,
-  watcher: OpResultWatcher<D>
+  handler: OpResultHandler<D>
 ) =>
   apolloLinkOp<D>(operationName, (op, next) =>
     next(op).map(resp => {
-      const watcherResp = watcher(resp);
-      return typeof watcherResp === 'undefined' ? resp : watcherResp;
+      const handlerResp = handler(resp);
+      return typeof handlerResp === 'undefined' ? resp : handlerResp;
     })
   );
 

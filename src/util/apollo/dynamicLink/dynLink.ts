@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect } from 'react';
 import {
   Name,
   OperationDef,
-  OpResultWatcher,
+  OpResultHandler,
   apolloLinkOpResult,
   OpRequestHandler,
   apolloLinkOp
@@ -12,10 +12,10 @@ export interface DynamicLinkSrv {
   addLink: (link: ApolloLink) => () => void;
   addLinkOpResult: <D extends OperationDef>(
     operationName: Name<D>,
-    resWatcher: OpResultWatcher<D>
+    resWatcher: OpResultHandler<D>
   ) => () => void;
   addLinkOp: <D extends OperationDef>(
-    operationName: D['operationName'],
+    operationName: Name<D>,
     reqHandl: OpRequestHandler<D>
   ) => () => void;
 }
@@ -33,33 +33,42 @@ export const useDynamicLink = (link: ApolloLink) => {
   );
 };
 
-export const useDynamicLinkOpResult = (link: ApolloLink) => {
+export const useOpResult = <D extends OperationDef>(
+  operationName: Name<D>,
+  resWatcher: OpResultHandler<D>
+) => {
   const dynLinkCtx = useContext(ApolloDynamicLinkContext);
   useEffect(
     () => {
-      return dynLinkCtx.addLink(link);
+      return dynLinkCtx.addLinkOpResult(operationName, resWatcher);
     },
-    [dynLinkCtx, link]
+    [dynLinkCtx, operationName, resWatcher]
   );
 };
 
 export const createDynamicLinkEnv = () => {
   const dynamicLinksSet = new Set<ApolloLink>();
+  let chain = ApolloLink.from([]);
+  const updateChain = () => {
+    chain = ApolloLink.from(Array.from(dynamicLinksSet));
+  };
 
   const link = new ApolloLink((operation, nextLink) =>
-    ApolloLink.from(Array.from(dynamicLinksSet)).request(operation, nextLink)
+    chain.request(operation, nextLink)
   );
 
   const addLink = (link: ApolloLink) => {
     dynamicLinksSet.add(link);
+    updateChain();
     return () => {
       dynamicLinksSet.delete(link);
+      updateChain();
     };
   };
 
   const addLinkOpResult = <D extends OperationDef>(
     operationName: Name<D>,
-    resWatcher: OpResultWatcher<D>
+    resWatcher: OpResultHandler<D>
   ) => addLink(apolloLinkOpResult<D>(operationName, resWatcher));
 
   const addLinkOp = <D extends OperationDef>(
