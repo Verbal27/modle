@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { State as SessionState } from '../../redux/session';
-import { createContext } from 'react';
-import { StateContext } from './stateCtx';
+import React from 'react';
+import { State as SessionState } from '.';
+import { createContext, useContext } from 'react';
+import { StateContext } from '../ctx';
 
 export type SessionContextT = SessionState;
 

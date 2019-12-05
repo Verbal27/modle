@@ -9,7 +9,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import { Flex } from 'rebass/styled-components';
-import { SessionContext } from '../../context/global/sessionCtx';
+import { SessionContext } from '../../redux/session/ctx';
 import CollectionsAll from '../../pages/collections.all';
 import MyCollections from '../../pages/collections.all/collectionsFollowed';
 import Collection from '../../pages/collections.collection/component';

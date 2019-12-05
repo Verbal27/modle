@@ -9,7 +9,7 @@ import media from 'styled-media-query';
 import Link from '../../components/elements/Link/Link';
 import SignupModal from '../../components/elements/SignupModal';
 import { i18n } from '../../containers/App/App';
-import { SessionContext } from '../../context/global/sessionCtx';
+import { SessionContext } from '../../redux/session/ctx';
 import styled, { MoodleThemeInterface } from '../../themes/styled';
 import LoginForm from './LoginForm';
 import { ValidationField, ValidationObject, ValidationType } from './types';

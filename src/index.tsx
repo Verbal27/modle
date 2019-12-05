@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components';
 import getApolloClient from './apollo/client';
 import App from './containers/App/App';
-import { ProvideContexts } from './context/global';
+import { Providers } from './providers';
 import { integrateSessionApolloRedux } from './integrations/Session-Apollo-Redux';
 import createStore from './redux/store';
 import registerServiceWorker from './registerServiceWorker';
@@ -59,7 +59,9 @@ async function run() {
       }
   `;
   const createLocalKVStore = createLocalSessionKVStorage('local');
-  const store = createStore({ localKVStore: createLocalKVStore('SESSION#') });
+  const storeSrv = createStore({
+    localKVStore: createLocalKVStore('SESSION#')
+  });
 
   const dynamicLinkEnv = createDynamicLinkEnv();
 
@@ -69,8 +71,8 @@ async function run() {
     appLink
   });
 
-  integrateSessionApolloRedux(dynamicLinkEnv.srv, store.dispatch);
-  integrateToastNotifications(dynamicLinkEnv.srv, store.dispatch);
+  integrateSessionApolloRedux(dynamicLinkEnv.srv, storeSrv.store.dispatch);
+  integrateToastNotifications(dynamicLinkEnv.srv, storeSrv.store.dispatch);
   const ApolloApp = () => (
     <ApolloProvider client={apolloClient.client}>
       <ToastContainer
@@ -79,10 +81,13 @@ async function run() {
         autoClose={3000}
         newestOnTop
       />
-      <ProvideContexts store={store} dynamicLinkSrv={dynamicLinkEnv.srv}>
+      <Providers
+        StoreProvider={storeSrv.CtxProvider}
+        dynamicLinkSrv={dynamicLinkEnv.srv}
+      >
         <Global />
         <App />
-      </ProvideContexts>
+      </Providers>
     </ApolloProvider>
   );
 

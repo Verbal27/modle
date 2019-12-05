@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Redirect, Route, RouteComponentProps } from 'react-router-dom';
-import { SessionContext } from '../../context/global/sessionCtx';
+import { SessionContext } from '../../redux/session/ctx';
 
 interface ProtectedRouteProps extends RouteComponentProps {
   redirectUnauthenticatedTo?: string;

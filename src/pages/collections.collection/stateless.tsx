@@ -18,7 +18,7 @@ import { HomeBox, MainContainer } from '../../sections/layoutUtils';
 import { Wrapper, WrapperCont } from '../communities.all/CommunitiesAll';
 import Header from '../thread/header';
 import Empty from '../../components/elements/Empty';
-import { SessionContext } from '../../context/global/sessionCtx';
+import { SessionContext } from '../../redux/session/ctx';
 
 export interface Props {
   collectionQuery: GetCollectionQueryHookResult;

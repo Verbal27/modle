@@ -5,7 +5,7 @@ import { string } from 'yup';
 import { i18n } from '../../../containers/App/App';
 import CommentCmp from '../Comment/Comment';
 import styled from '../../../themes/styled';
-import { SessionContext } from '../../../context/global/sessionCtx';
+import { SessionContext } from '../../../redux/session/ctx';
 import Alert from '../Alert';
 import Modal from '../Modal';
 import SocialText from '../SocialText';

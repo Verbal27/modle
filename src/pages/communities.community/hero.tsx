@@ -6,7 +6,7 @@ import { clearFix } from 'polished';
 import { Settings } from 'react-feather';
 import media from 'styled-media-query';
 import { GetCommunityQueryQuery } from '../../graphql/generated/getCommunity.generated';
-import { SessionContext } from '../../context/global/sessionCtx';
+import { SessionContext } from '../../redux/session/ctx';
 
 interface Props {
   community: GetCommunityQueryQuery['community'];
