@@ -30,7 +30,6 @@ export const LOCAL_STORAGE_SESSION = IS_DEV ? 'dev_moo_session' : 'moo_session';
 IS_DEV &&
   console.log(`-environment-
 ${Object.keys(process.env)
-    .map(key => `${key}=${process.env[key]}`)
+    .map(key => `${key}="${process.env[key]}"`)
     .join('\n')}
--
 `);
