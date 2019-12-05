@@ -22,18 +22,14 @@ import { UsernameAvailableQueryOperation } from '../graphql/generated/checkUsern
 import { ConfirmEmailMutationMutationOperation } from '../graphql/generated/confirmEmail.generated';
 import { CreateUserMutationMutationOperation } from '../graphql/generated/createUser.generated';
 import { LoginMutationMutationOperation } from '../graphql/generated/login.generated';
-import {
-  getOpType,
-  Name,
-  getOperationNameAndType
-} from '../util/apollo/operation';
+import { getOpType, Name, getGqlEntryAndType } from '../util/apollo/operation';
 import { RootMutationType, RootQueryType } from '../graphql/types.generated';
 import { KVStore } from '../util/keyvaluestore/types';
-const introspectionQueryResultData = require('../fragmentTypes.json');
+import introspectionQueryResultData from '../fragmentTypes.json';
 
-export type MutationName = keyof RootMutationType;
-export type QueryName = keyof RootQueryType;
-export type OperationName = QueryName | MutationName;
+export type MutationEntry = keyof RootMutationType;
+export type QueryEntry = keyof RootQueryType;
+export type GqlEntry = QueryEntry | MutationEntry;
 
 // const { meQuery } = require('../../../graphql/me.graphql');
 interface Cfg {
@@ -52,20 +48,20 @@ export default async function initialise({ localKVStore, appLink }: Cfg) {
   const cache = new InMemoryCache({ fragmentMatcher });
 
   const setTokenLink = new ApolloLink((operation, nextLink) => {
-    const createSessionOpName: OperationName = 'createSession';
-    const deleteSessionOpName: OperationName = 'deleteSession';
+    const createSessionEntryName: GqlEntry = 'createSession';
+    const deleteSessionEntryName: GqlEntry = 'deleteSession';
 
-    const [opName] = getOperationNameAndType<OperationName>(operation.query);
+    const [entryName] = getGqlEntryAndType<GqlEntry>(operation.query);
 
-    if (opName && opName === deleteSessionOpName) {
+    if (entryName && entryName === deleteSessionEntryName) {
       authToken = undefined;
       localKVStore.del(AUTH_TOKEN_KEY);
     }
     return nextLink(operation).map(resp => {
-      if (opName === createSessionOpName) {
-        const authPyload = resp.data && resp.data[opName];
+      if (entryName === createSessionEntryName) {
+        const authPayload = resp.data && resp.data[entryName];
         authToken =
-          authPyload && authPyload.token ? authPyload.token : undefined;
+          authPayload && authPayload.token ? authPayload.token : undefined;
         authToken
           ? localKVStore.set(AUTH_TOKEN_KEY, authToken)
           : localKVStore.del(AUTH_TOKEN_KEY);
@@ -122,13 +118,9 @@ export default async function initialise({ localKVStore, appLink }: Cfg) {
   );
 
   const clientAwarenessHeadersLinkForNonApollo3Server = setContext((_, ctx) => {
-    const { headers } = ctx;
     return {
       ...ctx,
-      clientAwareness: undefined,
-      headers: {
-        ...headers
-      }
+      clientAwareness: undefined
     };
   });
 

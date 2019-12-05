@@ -63,15 +63,15 @@ export const getOpType = (op: Operation) => {
   return maybeOpDefNode && maybeOpDefNode.operation;
 };
 
-export const getOperationNameAndType = <OperationName extends string = string>(
+export const getGqlEntryAndType = <GqlEntryName extends string = string>(
   query: DocumentNode
-): [OperationName, OperationTypeNode] | [] => {
+): [GqlEntryName, OperationTypeNode] | [] => {
   const opDefNodes = query.definitions.filter(
     (def): def is OperationDefinitionNode => def.kind === 'OperationDefinition'
   );
 
   const maybeOperationNameAndType = opDefNodes.reduce<
-    [OperationName, OperationTypeNode] | null
+    [GqlEntryName, OperationTypeNode] | null
   >((found, opDefNode) => {
     if (!found) {
       const maybeFieldNode =
@@ -82,7 +82,7 @@ export const getOperationNameAndType = <OperationName extends string = string>(
       found =
         maybeFieldNode &&
         ([maybeFieldNode.name.value, opType] as [
-          OperationName,
+          GqlEntryName,
           OperationTypeNode
         ]);
     }

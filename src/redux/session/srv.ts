@@ -13,7 +13,7 @@ const defaultState: Session.State = {
 };
 export const createSessionSrv = (kvstore: KVStore): SessionSrv => {
   const getStoredState = (): Session.State | null => kvstore.get(SESSION_KEY);
-  const delStoredState = (): Session.State => kvstore.del(SESSION_KEY);
+  const delStoredState = (): Session.State | null => kvstore.del(SESSION_KEY);
   const setStoredState = (me: Session.State): void =>
     kvstore.set(SESSION_KEY, me);
 
