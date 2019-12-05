@@ -11,7 +11,7 @@ interface SessionSrv {
 const defaultState: Session.State = {
   me: null
 };
-export const createSessionMW = (kvstore: KVStore): SessionSrv => {
+export const createSessionSrv = (kvstore: KVStore): SessionSrv => {
   const getStoredState = (): Session.State | null => kvstore.get(SESSION_KEY);
   const delStoredState = (): Session.State => kvstore.del(SESSION_KEY);
   const setStoredState = (me: Session.State): void =>
