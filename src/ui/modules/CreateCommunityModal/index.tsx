@@ -31,8 +31,8 @@ const tt = {
 };
 
 interface Props {
-  closeModal: () => void;
-  onSubmit: (values: FormValues) => Promise<any>;
+  closeModal(): void;
+  onSubmit(values: FormValues): Promise<any>;
   initialValues?: FormValues;
   validationSchema?: ValidationSchema;
 }
