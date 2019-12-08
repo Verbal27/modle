@@ -32,8 +32,7 @@ const tt = {
 
 interface Props {
   closeModal: () => void;
-  onSubmit: (formValues: FormValues) => void;
-  isSubmitting?: boolean;
+  onSubmit: (values: FormValues) => Promise<any>;
   initialValues?: FormValues;
   validationSchema?: ValidationSchema;
 }
@@ -41,7 +40,6 @@ interface Props {
 const CreateCommunityModal: React.FC<Props> = ({
   onSubmit,
   closeModal,
-  isSubmitting = false,
   validationSchema = schema,
   initialValues = defaultValues
 }) => {
@@ -52,8 +50,6 @@ const CreateCommunityModal: React.FC<Props> = ({
     onSubmit: vals => onSubmit(vals),
     validationSchema
   });
-
-  React.useEffect(() => formik.setSubmitting(isSubmitting), [isSubmitting]);
 
   return (
     <Modal closeModal={handleCloseModal}>
@@ -68,7 +64,7 @@ const CreateCommunityModal: React.FC<Props> = ({
           <ContainerForm>
             <Input
               placeholder={tt.placeholders.name}
-              disabled={isSubmitting}
+              disabled={formik.isSubmitting}
               name="name"
               value={formik.values.name}
               onChange={formik.handleChange}
@@ -86,7 +82,7 @@ const CreateCommunityModal: React.FC<Props> = ({
           <ContainerForm>
             <Textarea
               placeholder={tt.placeholders.summary}
-              disabled={isSubmitting}
+              disabled={formik.isSubmitting}
               name="summary"
               value={formik.values.summary}
               onChange={formik.handleChange}
@@ -104,7 +100,7 @@ const CreateCommunityModal: React.FC<Props> = ({
           <ContainerForm>
             <Input
               placeholder={tt.placeholders.image}
-              disabled={isSubmitting}
+              disabled={formik.isSubmitting}
               name="image"
               value={formik.values.image}
               onChange={formik.handleChange}
@@ -116,7 +112,7 @@ const CreateCommunityModal: React.FC<Props> = ({
         </Row>
         <Actions>
           <Button
-            disabled={isSubmitting}
+            disabled={formik.isSubmitting}
             type="submit"
             style={{ marginLeft: '10px' }}
             onClick={formik.submitForm}

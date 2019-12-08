@@ -4,13 +4,15 @@ import { action } from '@storybook/addon-actions';
 import Modal from '.';
 import { themeDeco } from '../../styleguide/storiesThemeDecorator';
 
+const asyncAction = (ms: number, actname: string) => (...args) => (
+  action(actname)(...args), new Promise(resolve => setTimeout(resolve, ms))
+);
 storiesOf('Modules/CreateCommunity', module)
   .addDecorator(themeDeco())
-  .add('Standard submitting', () => (
+  .add('Standard with init vals', () => (
     <Modal
       closeModal={action('close modal')}
-      onSubmit={action('send stuff')}
-      isSubmitting
+      onSubmit={asyncAction(2000, 'send stuff')}
       initialValues={{
         image: 'http://test.com/img.jpg',
         name: 'my-name',
@@ -18,9 +20,9 @@ storiesOf('Modules/CreateCommunity', module)
       }}
     />
   ))
-  .add('Standard not submitting', () => (
-    <Modal closeModal={action('close modal')} onSubmit={action('send stuff')} />
-  ))
-  .add('Standard not submitting', () => (
-    <Modal closeModal={action('close modal')} onSubmit={action('send stuff')} />
+  .add('Standard', () => (
+    <Modal
+      closeModal={action('close modal')}
+      onSubmit={asyncAction(2000, 'send stuff')}
+    />
   ));
