@@ -120,7 +120,7 @@
     "interpolate-html-plugin": "3.0.0",
     "lint-staged": "7.3.0",
     "lodash": "4.17.15",
-    "luxon": "1.17.2",
+    "luxon": "1.28.1",
     "markdown-to-jsx": "6.10.3",
     "mini-css-extract-plugin": "0.4.3",
     "object-assign": "4.1.1",
